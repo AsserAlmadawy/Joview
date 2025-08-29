@@ -8,12 +8,6 @@ const message = document.querySelector("textarea");
 const messageHolder = document.getElementById("message-holder");
 const submit = document.getElementById("submit-btn");
 
-const templateParams = {
-  name: Name.value.trim(),
-  email: email.value.trim(),
-  message: message.value.trim()
-};
-
 const sendEmail = e => {
   e.preventDefault();
   

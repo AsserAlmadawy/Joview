@@ -41,26 +41,23 @@ form {
 
 textarea {
   resize: none;
-  width: 80vw;
+  width: 50vw;
   height: 200px;
   font-family: "Montserrat", sans-serif;
+  border-radius: 30px;
+  padding: 20px;
+  border: 2px solid #000;
+  overflow: hidden;
+  font-size: 15pt;
 }
 
 input {
-  width: 80vw;
+  width: 50vw;
   height: 40px;
   outline: none;
   border: 2px solid #000;
   border-radius: 30px;
   padding: 10px;
-  font-size: 15pt;
-}
-
-textarea {
-  border-radius: 30px;
-  padding: 20px;
-  border: 2px solid #000;
-  overflow: hidden;
   font-size: 15pt;
 }
 
@@ -96,5 +93,11 @@ button {
 @media (max-width: 600px) {
   button {
     font-size: 10pt;
-  }   
+    width: 50vw;
+  }
+
+  input,
+  textarea {
+    width: 80vw;
+  }
 }
