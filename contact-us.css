@@ -41,13 +41,13 @@ form {
 
 textarea {
   resize: none;
-  width: 50vw;
+  width: 80vw;
   height: 200px;
   font-family: "Montserrat", sans-serif;
 }
 
 input {
-  width: 30vw;
+  width: 80vw;
   height: 40px;
   outline: none;
   border: 2px solid #000;
