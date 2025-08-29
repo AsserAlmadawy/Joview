@@ -74,7 +74,7 @@ const handleMenu = () => {
     rotate: 0;
   `;
 
-    menu.addEventListener("click", () => handleMenu());
+    menu.addEventListener("click", handleMenu);
   };
 
   xMenu.addEventListener("click", handleSideMenu);
@@ -292,8 +292,6 @@ const search = () => {
     jobsBody.style.overflow = "auto";
   }
 
-
-
   const allButtons = document.querySelectorAll("button.take-quiz");
   allButtons.forEach(button => {
     button.addEventListener("click", e => {
@@ -420,6 +418,12 @@ const search = () => {
       });
     });
   });
+
+  if (document.querySelectorAll(".job-wrapper").length !== 37) {
+    arrow.style.display = "none";
+  } else {
+    arrow.style.display = "block";
+  }
 };
 
 xButton.addEventListener("click", () => {
@@ -430,12 +434,6 @@ xButton.addEventListener("click", () => {
 
 searchBar.addEventListener("input", () => {
   search();
-
-  if (document.querySelectorAll(".job-wrapper").length !== 37) {
-    arrow.style.display = "none";
-  } else {
-    arrow.style.display = "block";
-  }
 
   document.querySelectorAll(".job-wrapper").length !== 0
 
