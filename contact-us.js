@@ -1,4 +1,4 @@
-import { send } from "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
+import { send } from "@emailjs/browser";
 
 const Name = document.getElementById("name");
 const email = document.getElementById("email");
