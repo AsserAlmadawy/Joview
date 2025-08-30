@@ -1,5 +1,4 @@
 import { jobs } from "./jobs.js";
-import { send } from "@emailjs/browser";
 
 const jobsBody = document.getElementById("jobs-body");
 const arrow = document.querySelector(".arrow");
@@ -42,7 +41,7 @@ const handleMenu = () => {
   lines.forEach((line) => (line.style.backgroundColor = "rgb(0, 116, 217)"));
 
   menu.classList.add("x");
-  
+
   sideMenu.innerHTML = `
 <a href="index.html" class="link">HOME</a>
 <a href="jobs.html" class="link">JOBS</a>
@@ -92,7 +91,8 @@ const lines = document.querySelectorAll(".menu .line");
 menu.addEventListener("click", handleMenu);
 
 const jobsContainer = document.querySelector(".jobs");
-jobsContainer.innerHTML += jobs.map((job) => {
+jobsContainer.innerHTML += jobs
+  .map((job) => {
     return `
     <div class="job-wrapper">
     <div class="job image">
@@ -116,7 +116,7 @@ let ids = [];
 let answers = [];
 let score = 0;
 
-const shuffle = array => {
+const shuffle = (array) => {
   let currentIndex = array.length;
   let randomIndex;
 
@@ -133,11 +133,11 @@ const shuffle = array => {
   return array;
 };
 
-buttons.forEach(button => {
+buttons.forEach((button) => {
   jobsBody.style.height = "4960px";
 
-  button.addEventListener("click", e => {
-    const chosenJob = jobs.find(job => job.name === e.target.id);
+  button.addEventListener("click", (e) => {
+    const chosenJob = jobs.find((job) => job.name === e.target.id);
     jobsMain.style.textAlign = "unset";
 
     scrollTo({
@@ -148,7 +148,7 @@ buttons.forEach(button => {
       <div class="job-title">${e.target.id}</div>
       <div class="questions">
       ${shuffle(chosenJob.questions)
-        .map(question => {
+        .map((question) => {
           i++;
 
           return `
@@ -158,7 +158,7 @@ buttons.forEach(button => {
           }</h2>
               <div class="options">
                 ${shuffle(question.options)
-                  .map(option => {
+                  .map((option) => {
                     const uniqueId = "abcdefgh"
                       .split("")
                       .sort(() => 0.5 - Math.random())
@@ -186,7 +186,7 @@ buttons.forEach(button => {
     const submit = document.getElementById("submit");
     const inputs = document.getElementsByTagName("input");
 
-    submit.addEventListener("click", e => {
+    submit.addEventListener("click", (e) => {
       e.preventDefault();
 
       ids = [];
@@ -268,10 +268,10 @@ const xButton = document.getElementById("x");
 
 const search = () => {
   jobsContainer.innerHTML = jobs
-    .filter(job =>
+    .filter((job) =>
       job.name.toLowerCase().includes(searchBar.value.toLowerCase().trim())
     )
-    .map(job => {
+    .map((job) => {
       return `
     <div class="job-wrapper">
     <div class="job image">
@@ -288,26 +288,27 @@ const search = () => {
 
   if (document.querySelectorAll(".job-wrapper").length === 0) {
     jobsBody.style.overflow = "hidden";
-    jobsContainer.innerHTML = '<div class="not-found">No jobs match your search.</div>';
+    jobsContainer.innerHTML =
+      '<div class="not-found">No jobs match your search.</div>';
   } else {
     jobsBody.style.overflow = "auto";
   }
 
   const allButtons = document.querySelectorAll("button.take-quiz");
-  allButtons.forEach(button => {
-    button.addEventListener("click", e => {
-      const chosenJob = jobs.find(job => job.name === e.target.id);
+  allButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const chosenJob = jobs.find((job) => job.name === e.target.id);
       jobsMain.style.textAlign = "unset";
 
       scrollTo({
-        top: 0
+        top: 0,
       });
 
       jobsMain.innerHTML = `
         <div class="job-title">${e.target.id}</div>
         <div class="questions">
         ${shuffle(chosenJob.questions)
-          .map(question => {
+          .map((question) => {
             i++;
 
             return `
@@ -317,7 +318,7 @@ const search = () => {
             }</h2>
                 <div class="options">
                   ${shuffle(question.options)
-                    .map(option => {
+                    .map((option) => {
                       const uniqueId = "abcdefgh"
                         .split("")
                         .sort(() => 0.5 - Math.random())
@@ -366,7 +367,9 @@ const search = () => {
           }
 
           for (const answer of answers) {
-            if (chosenJob.questions[answers.indexOf(answer)].answer === answer) {
+            if (
+              chosenJob.questions[answers.indexOf(answer)].answer === answer
+            ) {
               score++;
             }
           }
@@ -436,23 +439,23 @@ xButton.addEventListener("click", () => {
 searchBar.addEventListener("input", () => {
   search();
 
-  document.querySelectorAll(".job-wrapper").length !== 0
+  document.querySelectorAll(".job-wrapper").length !== 0;
 
   const allButtons = document.querySelectorAll("button");
-  allButtons.forEach(button => {
-    button.addEventListener("click", e => {
+  allButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
       const chosenJob = jobs.find((job) => job.name === e.target.id);
       jobsMain.style.textAlign = "unset";
 
       scrollTo({
-        top: 0
+        top: 0,
       });
 
       jobsMain.innerHTML = `
         <div class="job-title">${e.target.id}</div>
         <div class="questions">
         ${shuffle(chosenJob.questions)
-          .map(question => {
+          .map((question) => {
             i++;
 
             return `
@@ -487,63 +490,65 @@ searchBar.addEventListener("input", () => {
         <button type="submit" id="submit">SUBMIT</button>
       `;
 
-    const submit = document.getElementById("submit");
-    const inputs = document.getElementsByTagName("input");
+      const submit = document.getElementById("submit");
+      const inputs = document.getElementsByTagName("input");
 
-    submit.addEventListener("click", () => {
-      ids = [];
-      answers = [];
-      score = 0;
+      submit.addEventListener("click", () => {
+        ids = [];
+        answers = [];
+        score = 0;
 
-      for (const input of inputs) {
-        if (input.checked) {
-          ids.push(input.id);
-        }
-      }
-
-      if (ids.length < 15) {
-        alert("Please answer all questions.");
-      } else {
-        for (const id of ids) {
-          answers.push(
-            document.querySelector(`label[for="${id}"]`).textContent
-          );
-        }
-
-        for (const answer of answers) {
-          if (chosenJob.questions[answers.indexOf(answer)].answer === answer) {
-            score++;
+        for (const input of inputs) {
+          if (input.checked) {
+            ids.push(input.id);
           }
         }
 
-        const modal = document.querySelector(".modal");
-        const backdrop = document.querySelector(".backdrop");
-        const x = document.querySelector(".x-button");
-        const scoreText = document.querySelector(".score");
-        const c1 = document.querySelector(".c1");
+        if (ids.length < 15) {
+          alert("Please answer all questions.");
+        } else {
+          for (const id of ids) {
+            answers.push(
+              document.querySelector(`label[for="${id}"]`).textContent
+            );
+          }
 
-        modal.style.display = "block";
-        backdrop.style.display = "block";
+          for (const answer of answers) {
+            if (
+              chosenJob.questions[answers.indexOf(answer)].answer === answer
+            ) {
+              score++;
+            }
+          }
 
-        scoreText.textContent = score;
+          const modal = document.querySelector(".modal");
+          const backdrop = document.querySelector(".backdrop");
+          const x = document.querySelector(".x-button");
+          const scoreText = document.querySelector(".score");
+          const c1 = document.querySelector(".c1");
 
-        x.addEventListener("click", () => {
-          modal.style.display = "none";
-          backdrop.style.display = "none";
-        });
+          modal.style.display = "block";
+          backdrop.style.display = "block";
 
-        backdrop.addEventListener("click", () => {
-          modal.style.display = "none";
-          backdrop.style.display = "none";
-        });
+          scoreText.textContent = score;
 
-        scoreText.textContent.length === 1 &&
-          (scoreText.style.cssText = `width: 40px; left: calc(50% - 20px);`);
+          x.addEventListener("click", () => {
+            modal.style.display = "none";
+            backdrop.style.display = "none";
+          });
 
-        const dynamicStyles = document.createElement("style");
-        document.head.appendChild(dynamicStyles);
+          backdrop.addEventListener("click", () => {
+            modal.style.display = "none";
+            backdrop.style.display = "none";
+          });
 
-        const keyframes = `
+          scoreText.textContent.length === 1 &&
+            (scoreText.style.cssText = `width: 40px; left: calc(50% - 20px);`);
+
+          const dynamicStyles = document.createElement("style");
+          document.head.appendChild(dynamicStyles);
+
+          const keyframes = `
         @keyframes score {
           from {
             stroke-dashoffset: 630;
@@ -555,15 +560,15 @@ searchBar.addEventListener("input", () => {
         }
       `;
 
-        dynamicStyles.sheet.insertRule(
-          keyframes,
-          dynamicStyles.sheet.cssRules.length
-        );
-        c1.style.animation = "score 1s forwards linear";
-      }
+          dynamicStyles.sheet.insertRule(
+            keyframes,
+            dynamicStyles.sheet.cssRules.length
+          );
+          c1.style.animation = "score 1s forwards linear";
+        }
+      });
     });
   });
-});
 });
 
 window.addEventListener("resize", () => {
@@ -597,86 +602,13 @@ window.addEventListener("scroll", () => {
     arrow.style.opacity = 0;
   } else {
     arrow.style.opacity = 1;
-    circle.style.strokeDashoffset = 82 - (scrollY / (jobsBody.scrollHeight - innerHeight)) * 82;
+    circle.style.strokeDashoffset =
+      82 - (scrollY / (jobsBody.scrollHeight - innerHeight)) * 82;
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => scrollTo({ top: 0, behavior: "smooth" }));
+document.addEventListener("DOMContentLoaded", () =>
+  scrollTo({ top: 0, behavior: "smooth" })
+);
 
 jobsBody.style.height = "unset";
-
-// Contact Us
-
-const Name = document.getElementById("name");
-const email = document.getElementById("email");
-const nameHolder = document.getElementById("name-holder");
-const emailHolder = document.getElementById("email-holder");
-const message = document.querySelector("textarea");
-const messageHolder = document.getElementById("message-holder");
-const submit = document.getElementById("submit-btn");
-
-const sendEmail = e => {
-  e.preventDefault();
-  
-  if (Name.value === "" || email.value === "" || message.value === "") {
-    alert("Please enter your name, email, and message.");
-  } else {
-    if (!email.value.includes("@")) {
-      alert("Email must contain @ symbol.");
-    } else {
-     submit.textContent = "SENDING...";
-
-    send("joview-mail", "template_scnkg34", {
-    name: Name.value.trim(),
-    email: email.value.trim(),
-    message: message.value.trim()
-}, "XymwmkfziJI-JtCUJ")
-
-    .then(() => {
-      Name.value = "";
-      email.value = "";
-      message.value = "";
-
-      submit.textContent = "SENT!";
-
-      alert("Email successfully sent!");
-      setTimeout(() => submit.textContent = "SEND EMAIL", 2000);
-    })
-    .catch(error => {
-      console.log(error);
-    }); 
-    }
-  }
-};
-
-nameHolder.addEventListener("click", () => Name.focus());
-Name.addEventListener("focus", () => nameHolder.style.translate = "0 30px");
-Name.addEventListener("focusout", () => {
-  if (Name.value) {
-    return;
-  } else {
-    nameHolder.style.translate = "0 49px";
-  }
-});
-
-emailHolder.addEventListener("click", () => email.focus());
-email.addEventListener("focus", () => emailHolder.style.translate = "0 30px");
-email.addEventListener("focusout", () => {
-  if (email.value) {
-    return;
-  } else {
-    emailHolder.style.translate = "0 49px";
-  }
-});
-
-messageHolder.addEventListener("click", () => Name.focus());
-message.addEventListener("focus", () => messageHolder.style.translate = "0 33px");
-message.addEventListener("focusout", () => {
-  if (message.value) {
-    return;
-  } else {
-    messageHolder.style.translate = "0 134px";
-  }
-});
-
-submit.addEventListener("click", sendEmail);
