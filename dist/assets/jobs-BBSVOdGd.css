@@ -3,3 +3,6 @@
 #submit {
     translate: 0 10px
 }
+#none {
+  display: none;
+}

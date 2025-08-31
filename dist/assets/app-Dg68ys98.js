@@ -103,6 +103,7 @@
       <div class="job-title">${i.target.id}</div>
       <div class="questions">
       ${f(n.questions).map(s=>(w++,`
+        <span id="none">${s.name === "Chemist" && (w = 0)}<span>
           <div class="question">
             <h2 class="question-body"><span>${w}</span> ${s.question}</h2>
               <div class="options">
