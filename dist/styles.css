@@ -21,6 +21,17 @@ body {
   user-select: none;
 }
 
+.main {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: none;
+}
+
 img[alt="Logo"] {
   height: 50px;
 }

@@ -2,6 +2,9 @@ import { jobs } from "./jobs.js";
 
 const jobsBody = document.getElementById("jobs-body");
 const arrow = document.querySelector(".arrow");
+const main = document.querySelector(".main");
+const menu = document.querySelector(".menu");
+const lines = document.querySelectorAll(".menu .line");
 
 const header = document.querySelector(".header");
 header.innerHTML = `
@@ -20,74 +23,75 @@ sideMenu.innerHTML = `
 <a href="contact-us.html" class="link">CONTACT US</a>
 `;
 
-const handleMenu = () => {
+// ...existing code...
+// ...existing code...
+let removeMenuListeners = () => {};
+
+// ...existing code...
+
+function handleMenu(e) {
   const one = document.querySelector(".one");
   const two = document.querySelector(".two");
   const three = document.querySelector(".three");
 
-  menu.style.display = "block";
-  menu.style.opacity = 1;
+  const isOpen = menu.classList.contains("x");
 
-  one.style.rotate = "-45deg";
-  two.style.opacity = 0;
-  three.style.rotate = "45deg";
+  if (!isOpen) {
+    // --- OPEN ---
+    main.style.display = "block";
+    menu.style.display = "block";
+    menu.style.opacity = 1;
 
-  two.style.translate = 0;
-  one.style.translate = "0 10px";
-  three.style.translate = "0 -10px";
+    one.style.rotate = "-45deg";
+    two.style.opacity = 0;
+    three.style.rotate = "45deg";
 
-  menu.style.zIndex = 300;
-  sideMenu.style.right = 0;
-  lines.forEach((line) => (line.style.backgroundColor = "rgb(0, 116, 217)"));
+    two.style.translate = "0 0";
+    one.style.translate = "0 10px";
+    three.style.translate = "0 -10px";
 
-  menu.classList.add("x");
+    menu.style.zIndex = 300;
+    sideMenu.style.right = "0";
+    lines.forEach(line => line.style.backgroundColor = "rgb(0, 116, 217)");
 
-  sideMenu.innerHTML = `
-<a href="index.html" class="link">HOME</a>
-<a href="jobs.html" class="link">JOBS</a>
-<a href="about-us.html" class="link">ABOUT US</a>
-<a href="contact-us.html" class="link">CONTACT US</a>
-`;
-
-  const xMenu = document.querySelector(".x");
-
-  const handleSideMenu = () => {
+    menu.classList.add("x");
+  } else {
+    // --- CLOSE ---
+    main.style.display = "none";
     sideMenu.style.right = "-250px";
-    sideMenu.innerHTML = `
-    <a href="index.html" class="link">HOME</a>
-    <a href="jobs.html" class="link">JOBS</a>
-    <a href="about-us.html" class="link">ABOUT US</a>
-    <a href="contact-us.html" class="link">CONTACT US</a>
-`;
 
-    one.style.cssText = `
-    background-color: #000;
-    rotate: 180deg;
-  `;
+    one.style.rotate = "0deg";
+    two.style.opacity = 1;
+    three.style.rotate = "0deg";
 
-    two.style.cssText = `
-    display: block;
-  `;
+    one.style.translate = "0 0";
+    two.style.translate = "0 0";
+    three.style.translate = "0 0";
 
-    three.style.cssText = `
-    background-color: #000;
-    rotate: 0;
-  `;
+    lines.forEach(line => line.style.backgroundColor = "#000");
 
-    menu.addEventListener("click", handleMenu);
-  };
+    menu.classList.remove("x");
+  }
+}
 
-  xMenu.addEventListener("click", handleSideMenu);
+// attach once
+menu.addEventListener("click", handleMenu);
+main.addEventListener("click", () => {
+  if (menu.classList.contains("x")) handleMenu();
+});
+window.addEventListener("scroll", () => {
+  if (menu.classList.contains("x")) handleMenu();
+});
 
-  const main = document.querySelector(".main");
 
-  main.addEventListener("click", handleSideMenu);
+// Start with only openMenu attached
+menu.addEventListener("click", handleMenu);
 
-  window.addEventListener("scroll", handleSideMenu);
-};
+// ...existing code...
+// ...existing code...
+// ...existing code...
+// ...existing code...
 
-const menu = document.querySelector(".menu");
-const lines = document.querySelectorAll(".menu .line");
 menu.addEventListener("click", handleMenu);
 
 const jobsContainer = document.querySelector(".jobs");
