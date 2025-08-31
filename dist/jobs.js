@@ -293,97 +293,6 @@ export let jobs = [
     ],
   },
   {
-    name: "Chef",
-    image: "assets/images/chef.jpg",
-    questions: [
-      {
-        question: "Which knife is used for chopping?",
-        options: [
-          "Chef's Knife",
-          "Paring Knife",
-          "Bread Knife",
-          "Butter Knife",
-        ],
-        answer: "Chef's Knife",
-      },
-      {
-        question: "Which heat method cooks slowly?",
-        options: ["Simmering", "Boiling", "Frying", "Grilling"],
-        answer: "Simmering",
-      },
-      {
-        question: "Which ingredient thickens sauces?",
-        options: ["Flour", "Salt", "Pepper", "Sugar"],
-        answer: "Flour",
-      },
-      {
-        question: "Which knife trims vegetables?",
-        options: ["Paring Knife", "Bread Knife", "Chef's Knife", "Cleaver"],
-        answer: "Paring Knife",
-      },
-      {
-        question: "Which method uses dry heat?",
-        options: ["Roasting", "Boiling", "Steaming", "Poaching"],
-        answer: "Roasting",
-      },
-      {
-        question: "Which utensil measures volume?",
-        options: ["Measuring Cup", "Pan", "Spatula", "Knife"],
-        answer: "Measuring Cup",
-      },
-      {
-        question: "Which herb is used in Italian cooking?",
-        options: ["Basil", "Mint", "Sage", "Coriander"],
-        answer: "Basil",
-      },
-      {
-        question: "Which ingredient rises in baking?",
-        options: ["Yeast", "Salt", "Pepper", "Sugar"],
-        answer: "Yeast",
-      },
-      {
-        question: "Which is a type of cooking fat?",
-        options: ["Butter", "Water", "Vinegar", "Honey"],
-        answer: "Butter",
-      },
-      {
-        question: "Which knife cuts bread?",
-        options: ["Bread Knife", "Chef's Knife", "Paring Knife", "Cleaver"],
-        answer: "Bread Knife",
-      },
-      {
-        question: "Which technique cooks pasta?",
-        options: ["Boiling", "Roasting", "Frying", "Grilling"],
-        answer: "Boiling",
-      },
-      {
-        question: "Which is basic soup ingredient?",
-        options: ["Stock", "Flour", "Sugar", "Chocolate"],
-        answer: "Stock",
-      },
-      {
-        question: "Which temperature cooks meat safely?",
-        options: [
-          "Internal 75°C",
-          "Internal 40°C",
-          "Internal 50°C",
-          "Internal 60°C",
-        ],
-        answer: "Internal 75°C",
-      },
-      {
-        question: "Which tool flips pancakes?",
-        options: ["Spatula", "Whisk", "Knife", "Tongs"],
-        answer: "Spatula",
-      },
-      {
-        question: "Which ingredient is acidic?",
-        options: ["Lemon", "Sugar", "Salt", "Butter"],
-        answer: "Lemon",
-      },
-    ],
-  },
-  {
     name: "Pharmacist",
     image: "assets/images/pharmacist.jpg",
     questions: [
@@ -850,87 +759,6 @@ export let jobs = [
         question: "Which report is in-depth?",
         options: ["Feature", "News Brief", "Headline", "Column"],
         answer: "Feature",
-      },
-    ],
-  },
-  {
-    name: "Web Developer",
-    image: "assets/images/web-dev.jpg",
-    questions: [
-      {
-        question: "Which language structures web content?",
-        options: ["HTML", "CSS", "JavaScript", "Python"],
-        answer: "HTML",
-      },
-      {
-        question: "Which language styles web pages?",
-        options: ["CSS", "HTML", "JavaScript", "SQL"],
-        answer: "CSS",
-      },
-      {
-        question: "Which language adds interactivity?",
-        options: ["JavaScript", "HTML", "CSS", "SQL"],
-        answer: "JavaScript",
-      },
-      {
-        question: "Which protocol loads web pages?",
-        options: ["HTTP", "FTP", "SMTP", "IMAP"],
-        answer: "HTTP",
-      },
-      {
-        question: "Which database is relational?",
-        options: ["MySQL", "MongoDB", "Redis", "Cassandra"],
-        answer: "MySQL",
-      },
-      {
-        question: "Which term is front-end framework?",
-        options: ["React", "Node.js", "Express", "Django"],
-        answer: "React",
-      },
-      {
-        question: "Which term is back-end framework?",
-        options: ["Node.js", "React", "Vue", "Angular"],
-        answer: "Node.js",
-      },
-      {
-        question: "Which tool manages versions?",
-        options: ["Git", "VS Code", "Chrome", "Photoshop"],
-        answer: "Git",
-      },
-      {
-        question: "Which protocol sends emails?",
-        options: ["SMTP", "HTTP", "FTP", "SSH"],
-        answer: "SMTP",
-      },
-      {
-        question: "Which database stores JSON documents?",
-        options: ["MongoDB", "MySQL", "PostgreSQL", "Oracle"],
-        answer: "MongoDB",
-      },
-      {
-        question: "Which is server-side language?",
-        options: ["Python", "HTML", "CSS", "JavaScript"],
-        answer: "Python",
-      },
-      {
-        question: "Which tag links CSS file?",
-        options: ["link", "script", "style", "meta"],
-        answer: "link",
-      },
-      {
-        question: "Which tag links JS file?",
-        options: ["script", "link", "style", "meta"],
-        answer: "script",
-      },
-      {
-        question: "Which protocol encrypts web traffic?",
-        options: ["HTTPS", "HTTP", "FTP", "SMTP"],
-        answer: "HTTPS",
-      },
-      {
-        question: "Which term optimizes page speed?",
-        options: ["Minification", "Decoration", "Formatting", "Annotation"],
-        answer: "Minification",
       },
     ],
   },
@@ -3299,6 +3127,112 @@ export let jobs = [
         question: "Which lifestyle change lowers the risk of heart disease?",
         options: ["Regular exercise", "Smoking", "High sugar intake", "Stress"],
         answer: "Regular exercise",
+      },
+    ],
+  },
+  {
+    name: "Chemist",
+    image: "assets/images/chemist.jpg",
+    questions: [
+      {
+        question: "What is the chemical symbol for water?",
+        options: ["O2", "CO2", "H2O", "HO2"],
+        answer: "H2O",
+      },
+      {
+        question: "Which gas do plants release during photosynthesis?",
+        options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
+        answer: "Oxygen",
+      },
+      {
+        question: "What is the pH of a neutral solution?",
+        options: ["0", "7", "14", "10"],
+        answer: "7",
+      },
+      {
+        question: "Which element has atomic number 1?",
+        options: ["Oxygen", "Hydrogen", "Helium", "Carbon"],
+        answer: "Hydrogen",
+      },
+      {
+        question: "Which acid is found in lemons?",
+        options: ["Sulfuric acid", "Acetic acid", "Citric acid", "Nitric acid"],
+        answer: "Citric acid",
+      },
+      {
+        question: "Which bond involves sharing of electrons?",
+        options: [
+          "Ionic bond",
+          "Covalent bond",
+          "Metallic bond",
+          "Hydrogen bond",
+        ],
+        answer: "Covalent bond",
+      },
+      {
+        question: "Which element is needed for breathing?",
+        options: ["Hydrogen", "Oxygen", "Nitrogen", "Carbon"],
+        answer: "Oxygen",
+      },
+      {
+        question: "Which gas causes acid rain?",
+        options: ["Oxygen", "Sulfur dioxide", "Nitrogen", "Carbon monoxide"],
+        answer: "Sulfur dioxide",
+      },
+      {
+        question: "Which type of reaction releases heat?",
+        options: [
+          "Endothermic",
+          "Exothermic",
+          "Neutralization",
+          "Decomposition",
+        ],
+        answer: "Exothermic",
+      },
+      {
+        question: "Table salt is chemically known as:",
+        options: [
+          "Sodium chloride",
+          "Potassium nitrate",
+          "Calcium carbonate",
+          "Magnesium sulfate",
+        ],
+        answer: "Sodium chloride",
+      },
+      {
+        question: "Which gas turns limewater milky?",
+        options: ["Oxygen", "Carbon dioxide", "Hydrogen", "Chlorine"],
+        answer: "Carbon dioxide",
+      },
+      {
+        question: "Which metal is liquid at room temperature?",
+        options: ["Mercury", "Iron", "Aluminum", "Sodium"],
+        answer: "Mercury",
+      },
+      {
+        question: "Which polymer is used in making plastic bottles?",
+        options: ["Nylon", "Polyethylene", "Rubber", "Cellulose"],
+        answer: "Polyethylene",
+      },
+      {
+        question: "Which acid is present in the stomach?",
+        options: [
+          "Nitric acid",
+          "Sulfuric acid",
+          "Hydrochloric acid",
+          "Acetic acid",
+        ],
+        answer: "Hydrochloric acid",
+      },
+      {
+        question: "Which process separates mixtures based on boiling points?",
+        options: [
+          "Filtration",
+          "Chromatography",
+          "Distillation",
+          "Evaporation",
+        ],
+        answer: "Distillation",
       },
     ],
   },
