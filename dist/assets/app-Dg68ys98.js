@@ -1,3 +1,5 @@
+let w = 0;
+
 (function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))r(t);new MutationObserver(t=>{for(const s of t)if(s.type==="childList")for(const e of s.addedNodes)e.tagName==="LINK"&&e.rel==="modulepreload"&&r(e)}).observe(document,{childList:!0,subtree:!0});function n(t){const s={};return t.integrity&&(s.integrity=t.integrity),t.referrerPolicy&&(s.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?s.credentials="include":t.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function r(t){if(t.ep)return;t.ep=!0;const s=n(t);fetch(t.href,s)}})();let b=[{
     name: "Web Developer",
     image: "assets/images/web-dev.jpg",
@@ -99,11 +101,14 @@
       <button class="take-quiz" id="${a.name}">Take quiz</button>
     </div>
     </div>
-`).join("");const q=document.querySelector(".jobs-main"),I=document.querySelectorAll("button.take-quiz");let w=0,u=[],p=[],m=0;const f=a=>{let i=a.length,n;for(;i!==0;)n=Math.floor(Math.random()*i),i--,[a[i],a[n]]=[a[n],a[i]];return a};I.forEach(a=>{S.style.height="4960px",a.addEventListener("click",i=>{const n=b.find(s=>s.name===i.target.id);q.style.textAlign="unset",scrollTo({top:0}),q.innerHTML=`
+`).join("");const q=document.querySelector(".jobs-main"),I=document.querySelectorAll("button.take-quiz");const f=a=>{let i=a.length,n;for(;i!==0;)n=Math.floor(Math.random()*i),i--,[a[i],a[n]]=[a[n],a[i]];return a};I.forEach(a=>{S.style.height="4960px",a.addEventListener("click",i=>{const n=b.find(s=>s.name===i.target.id);q.style.textAlign="unset",scrollTo({top:0}),q.innerHTML=`
       <div class="job-title">${i.target.id}</div>
       <div class="questions">
-      ${f(n.questions).map(s=>(w++,`
-        <span id="none">${s.name === "Chemist" && (w = 0)}<span>
+      ${f(n.questions).map(s=>{
+      n.questions.indexOf(s) === 0 && (w=0);
+      w++;
+
+        return (`
           <div class="question">
             <h2 class="question-body"><span>${w}</span> ${s.question}</h2>
               <div class="options">
@@ -115,7 +120,7 @@
                   `}).join("")}
               </div>
           </div>
-        `)).join("")}
+        `)}).join("")}
       </div>
       <button type="submit" id="submit">SUBMIT</button>
     `;const r=document.getElementById("submit"),t=document.getElementsByTagName("input");r.addEventListener("click",s=>{s.preventDefault(),u=[],p=[],m=0;for(const e of t)e.checked&&u.push(e.id);if(u.length<15)alert("Please answer all questions.");else{for(const l of u)p.push(document.querySelector(`label[for="${l}"]`).textContent);for(const l of p)n.questions[p.indexOf(l)].answer===l&&m++;const e=document.querySelector(".modal"),o=document.querySelector(".backdrop"),c=document.querySelector(".x-button"),d=document.querySelector(".score"),W=document.querySelector(".c1");e.style.display="block",o.style.display="block",d.textContent=m,c.addEventListener("click",()=>{e.style.display="none",o.style.display="none"}),o.addEventListener("click",()=>{e.style.display="none",o.style.display="none"}),d.textContent.length===1&&(d.style.cssText="width: 40px; left: calc(50% - 20px);");const g=document.createElement("style");document.head.appendChild(g);const v=`
